@@ -1,0 +1,2 @@
+class IOValidator:
+    pass
