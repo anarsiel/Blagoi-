@@ -1,7 +1,7 @@
 import copy
 
 from dynamic.Data import Data
-from language.Command import Command
+from dynamic.Command import Command
 
 
 class DataProvider:

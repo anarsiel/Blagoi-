@@ -1,4 +1,4 @@
-from language.Command import Command
+from dynamic.Command import Command
 from modules.DataProvider import DataProvider
 
 

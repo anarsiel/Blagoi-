@@ -4,10 +4,11 @@ from modules._interfaces.CommonValidator import CommonValidator
 class AlgoValidator:
     @staticmethod
     def validate_inc(args):
-        try:
-            int(args[0])
-        except:
-            CommonValidator.validate_name_variable(args[0])
+        pass
+        # try:
+        #     int(args[0])
+        # except:
+        # CommonValidator.validate_name_variable(args[0])
 
     ""
 

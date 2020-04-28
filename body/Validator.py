@@ -27,6 +27,8 @@ class Validator:
             self.__entity_to_func[type](value)
         except KeyError:
             DataProvider.get_service_command(type).get_validation_func()(value)
+        except CommonValidator.ValidationError as exception:
+            raise Validator.ValidationError(str(exception))
 
     #
     #   Private

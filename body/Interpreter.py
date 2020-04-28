@@ -70,16 +70,25 @@ class Interpreter:
                     params[idx] = DataProvider.get_variable_value(variable)
                 except Exception:
                     pass
-                finally:
-                    if inspect.isclass(param_types[idx]):
-                        params[idx] = param_types[idx](params[idx])
-                    else:
-                        break
 
         try:
             self.__validator.validate('command', (command.get_name(), params))
         except (Validator.ValidationError, CommonValidator.ValidationError) as exception:
-            raise Interpreter.RunTimeError(str(exception))
+            raise Interpreter.RunTimeError(f'Command: `{command.get_name()}`. ' +
+                                           str(exception))
+
+        param_types = command.get_param_types()
+        for idx, param in enumerate(params):
+            if inspect.isclass(param_types[idx]):
+                params[idx] = param_types[idx](params[idx])
+            else:
+                break
+
+        try:
+            self.__validator.validate('command', (command.get_name(), params))
+        except (Validator.ValidationError, CommonValidator.ValidationError) as exception:
+            raise Interpreter.RunTimeError(f'Command: `{command.get_name()}`. ' +
+                                           str(exception))
 
         if command.get_name() == Semantic.get_symbol('var'):
             new_command, *new_params = params[2:]

@@ -71,7 +71,7 @@ class Preprocessor:
         try:
             self.__validator.validate('command', (command, params))
         except Validator.ValidationError as exception:
-            raise Preprocessor.ParseException(f"Command: {command}. " +
+            raise Preprocessor.ParseException(f"Command: `{command}`. " +
                                                 str(exception))
         if command == Semantic.get_symbol('var'):
             DataProvider.set_variable_value(params[0], None)

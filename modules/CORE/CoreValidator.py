@@ -13,10 +13,10 @@ class CoreValidator:
 
     @staticmethod
     def validate_loop(args):
-        if CommonValidator.looks_like_variable(args[0]):
-            return
-
-        args[0] = int(args[0])
+        # if CommonValidator.looks_like_variable(args[0]):
+        #     return
+        #
+        # args[0] = int(args[0])
         if args[0] <= 0:
             raise CommonValidator.ValidationError(
                 f'Number of repetitions must be greater then zero. '
