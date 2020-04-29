@@ -8,4 +8,3 @@ class Data:
     values_stack      = []
 
     current_line      = 0
-    return_buffer     = None

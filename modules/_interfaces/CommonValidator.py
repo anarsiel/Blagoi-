@@ -16,6 +16,9 @@ class CommonValidator:
     @staticmethod
     def check_if_variable_exists(value):
         value = value.lstrip('%')
+        if value == Semantic.get_symbol('return_variable'):
+            return
+
         if not value in DataProvider.get_variables().keys():
             raise CommonValidator.ValidationError(
                 f"Variable do not exist: `{value}`.")

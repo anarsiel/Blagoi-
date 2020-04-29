@@ -2,6 +2,7 @@ import copy
 
 from dynamic.Data import Data
 from dynamic.Command import Command
+from language.Semantic import Semantic
 
 
 class DataProvider:
@@ -141,11 +142,12 @@ class DataProvider:
 
     @staticmethod
     def get_returned_value():
-        return Data.return_buffer
+        return DataProvider.get_variable_value(Semantic.get_symbol('return_variable'))
 
     @staticmethod
     def return_value(value):
-        Data.return_buffer = value
+        DataProvider.set_variable_value(Semantic.get_symbol('return_variable'),
+                                        value)
 
     ##################################
 

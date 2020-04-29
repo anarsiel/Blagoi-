@@ -1,8 +1,9 @@
 class Semantic:
-    __variable_name_pattern = '[%][a-zA-Z][a-zA-Z0-9_]*'
-    __symbols = {'var_separator' : ':=',
-                 'var'           : 'var',
-                 'import'        : 'import'}
+    __variable_name_pattern = '[%][a-zA-Z_][a-zA-Z0-9_]*'
+    __symbols = {'var_separator'   : ':=',
+                 'var'             : 'var',
+                 'import'          : 'import',
+                 'return_variable' : '_'}
 
     @staticmethod
     def get_variable_name_pattern():
