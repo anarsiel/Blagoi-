@@ -115,8 +115,8 @@
   > ERROR:root:Runtime error. Line: 5. Command: `inc`. Wrong param type.   
   > Param #1: `SoMeTeXt` cannot be casted to <class 'int'>.
   ---------------------------------------------------------------------------
-  > ERROR:root:Compilation error. Line: 4. Command: `inc`. Wrong param type.
-  > Param #1: `SoMeTeXt` cannot be casted to <class 'int'>. 
+  > ERROR:root:Compilation error. Line: 4. Command: `inc`. Wrong param type.   
+  > Param #1: `SoMeTeXt` cannot be casted to <class 'int'>.
   ---------------------------------------------------------------------------
   > ERROR:root:Compilation error: Line: 4. Command: `inc`.
   > Variable do not exist: `some_var`.
