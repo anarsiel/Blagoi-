@@ -24,6 +24,3 @@ class CommonLogic:
 
     class RunTimeError(Exception):
         pass
-
-    class RunTimeWarning(Exception):
-        pass

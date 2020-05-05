@@ -5,7 +5,7 @@ from modules._interfaces.CommonLogic import CommonLogic
 class CoreLogic:
     @staticmethod
     def do_loop(cnt):
-        DataProvider.append_values_stack(int(cnt))
+        DataProvider.append_values_stack(cnt)
         DataProvider.append_command_stack('loop')
 
     @staticmethod

@@ -22,25 +22,28 @@ open_new_document
 
     var year_url := replace %base_url YEAR %year
     loop 12
-        get_month_name %month
-        add_title %_
-        print %_
+        var month_name := get_month_name %month
+        add_title %month_name
+        print %month_name
         new_page
 
-        format_length %month 2 0
-        var url := replace %year_url MONTH %_
+        month := format_length %month 2 0
+        var url := replace %year_url MONTH %month
 
-        load_page %url
-        print_to_file %page_filename %_
+        var content := load_page %url
+        print_to_file %page_filename %content
 
         var day := const 1
-        days_count_by_month %year %month
-        loop %_
-            replace %info_tags DAY %day
-            var image_info := get_element_from_html %page_filename %_ field text
+        var days_count := days_count_by_month %year %month
+        loop %days_count
+            var info_tags := concat %traverse_tags @div
+            var image_tags := concat %traverse_tags @a@img
 
-            replace %image_tags DAY %day
-            var image_url := get_element_from_html %page_filename %_ attr src
+            info_tags := replace %info_tags DAY %day
+            image_tags := replace %image_tags DAY %day
+
+            var image_url := get_element_from_html %page_filename %image_tags attr src
+            var image_info := get_element_from_html %page_filename %info_tags field text
 
             add_image_by_url %image_url
             new_paragraph

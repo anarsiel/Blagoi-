@@ -1,4 +1,3 @@
-import logging
 import os
 from io import BytesIO
 from urllib.request import urlopen
@@ -12,8 +11,6 @@ from modules._interfaces.CommonLogic import CommonLogic
 
 
 class DocxLogic:
-    __was_loaded = False
-
     __document = None
     __paragraph = None
 

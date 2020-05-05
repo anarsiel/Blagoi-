@@ -3,7 +3,6 @@ import inspect
 from body.Preprocessor import Preprocessor
 from body.Validator import Validator
 from language.Semantic import Semantic
-from modules.CORE.CoreLogic import CoreLogic
 from modules.DataProvider import DataProvider
 from modules._interfaces.CommonLogic import CommonLogic
 from modules._interfaces.CommonValidator import CommonValidator
@@ -43,10 +42,6 @@ class Interpreter:
                 raise Interpreter.RunTimeError(
                     f"Runtime error. Line: {idx + 1}. " + str(exception)
                 )
-            except Interpreter.RunTimeWarning as exception:
-                raise Interpreter.RunTimeWarning(
-                    f"Runtime error. Line: {idx + 1}. " + str(exception)
-                )
 
             DataProvider.inc_current_line()
 
@@ -60,7 +55,6 @@ class Interpreter:
     def __run_command(self, command, params):
         command = DataProvider.get_service_command(command)
 
-        param_types = command.get_param_types()
         if ModuleManager.module_was_loaded('CORE'):
             for idx, param in enumerate(params):
                 try:
@@ -108,11 +102,6 @@ class Interpreter:
                 f'Command: {command.get_name()}. '
                 f'{str(exception)}'
             )
-        except CommonLogic.RunTimeWarning as exception:
-            raise Interpreter.RunTimeWarning(
-                f'Command: {command.get_name()}. '
-                f'{str(exception)}'
-            )
 
     #
     # Getters & Setters
@@ -122,7 +111,4 @@ class Interpreter:
         pass
 
     class RunTimeError(Exception):
-        pass
-
-    class RunTimeWarning(Exception):
         pass

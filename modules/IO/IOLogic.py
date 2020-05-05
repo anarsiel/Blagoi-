@@ -1,6 +1,3 @@
-from modules._interfaces.CommonLogic import CommonLogic
-
-
 class IOLogic:
     @staticmethod
     def do_print_message(message):
@@ -8,13 +5,8 @@ class IOLogic:
 
     @staticmethod
     def print_to_file(filename, message):
-        try:
-            with open(filename, 'w') as f:
-                f.write(message)
-        except:
-            raise CommonLogic.RunTimeError(
-                f'Incorrect filename: `{filename}`'
-            )
+        with open(filename, 'w') as f:
+            f.write(message)
 
 
 class IO:

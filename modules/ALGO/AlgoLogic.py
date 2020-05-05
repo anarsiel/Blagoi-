@@ -8,17 +8,11 @@ from modules._interfaces.CommonLogic import CommonLogic
 class AlgoLogic:
     @staticmethod
     def do_inc(value):
-        try:
-            value = int(value)
-        except Exception:
-            raise CommonLogic.RunTimeError(f"Incorrect type: {type(value)}."
-                                    f" Must be {int}")
-
         DataProvider.return_value(value + 1)
 
     @staticmethod
     def do_concat(s, t):
-        DataProvider.return_value(str(s) + str(t))
+        DataProvider.return_value(s + t)
 
     @staticmethod
     def do_replace(s, t1, t2):
