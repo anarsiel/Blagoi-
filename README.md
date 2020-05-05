@@ -153,6 +153,7 @@
   * Test (содержащий информацию о модуле)
       ``` python
       class Test:
+      
           __info = [
               ['sum_even_even', TestLogic.sum22, [int, int], None, TestValidator.validate_sum22]
           ]
@@ -167,6 +168,7 @@
   * TestLogic (содержащий логику)
       ``` python
       class TestLogic:
+      
           @staticmethod
           def sum22(a, b):
               DataProvider.return_value(a + b) # класс, реализующий интерфейс взаимодействия с данными
@@ -174,6 +176,7 @@
   * TestValidator (валидирующий аргументы)
       ``` python
       class TestValidator:
+      
           @staticmethod
           def validate_sum22(args):
              for idx, arg in enumerate(args):
